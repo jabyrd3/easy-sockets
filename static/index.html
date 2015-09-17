@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <script type="text/javascript">
+    console.log('foop');
+    var ws = new WebSocket('ws://vps.jordanbyrd.com:8888/echo');
+    ws.onopen = function() {
+        ws.send('mirrored request');
+    }
+    ws.onmessage = function(e) {
+        console.log('received back from server', e.data);
+    }
+    </script>
+</head>
+
+<body>
+    <div id="putstuff"></div>
+</body>
+
+</html>
